@@ -10,7 +10,7 @@ namespace MyBankApp.Repository.Data
 {
     public class AppDbContext : DbContext
     {
-        protected AppDbContext(DbContextOptions<AppDbContext> option) : base(option)
+        public AppDbContext(DbContextOptions<AppDbContext> option) : base(option)
         {
 
         }

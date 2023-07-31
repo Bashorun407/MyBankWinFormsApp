@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyBankApp.Repository\MyBankApp.Repository.csproj" />
+    <ProjectReference Include="..\MyBankApp.Utility\MyBankApp.Utility.csproj" />
+  </ItemGroup>
+
 </Project>
