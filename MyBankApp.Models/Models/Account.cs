@@ -12,9 +12,13 @@ namespace MyBankApp.Models.Models
     public class Account : BaseEntity
     {
         public string AccountNumber { get; set; }
+        public string UserId { get; set; }
         public string Password { get; set; }
         public AccountType AccountType { get; set; }
         [Column(TypeName = "Money")]
         public double AccountBalance { get; set; }
+
+        //Navigational property
+        List<Account> AccountList { get; set;}
     }
 }

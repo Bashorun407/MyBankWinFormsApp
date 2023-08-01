@@ -10,7 +10,9 @@ namespace MyBankApp.Repository.Repository.Abstractions
     public interface ITransactionRepository : IGenericRepository<Transaction>
     {
         Task<Transaction> GetTransactionByTransactionIdAsync(string transactionId);
-        Task<Transaction> GetTransactionByAccountNumberAsync(string accountNumber);
+        Task<IEnumerable<Transaction>> GetDailyTransactionAsync(DateTime transactionDate);
+        Task<IEnumerable<Transaction>> GetTransactionByAccountNumberAsync(string accountNumber);
         Task<IEnumerable<Transaction>> GetAllTransactionsAsync();
+       
     }
 }

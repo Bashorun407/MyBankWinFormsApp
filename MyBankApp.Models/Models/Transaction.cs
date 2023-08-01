@@ -11,7 +11,7 @@ namespace MyBankApp.Models.Models
 {
     public class Transaction : BaseEntity
     {
-        public string? TransactionId { get; set; }
+        public string TransactionId { get; set; }
         //Debit or Credit or Transfer
         public TransactionType TransactionType { get; set; }
         public string AccountNumber { get; set; }
@@ -20,5 +20,7 @@ namespace MyBankApp.Models.Models
         public double TransactionAmount { get; set; }
 
         public string TransactionDescription { get; set; }
+
+        public bool DeleteTransaction { get; set; }
     }
 }

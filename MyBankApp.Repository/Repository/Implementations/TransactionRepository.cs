@@ -26,14 +26,22 @@ namespace MyBankApp.Repository.Repository.Implementations
             return transactions;
         }
 
-        public async Task<Transaction> GetTransactionByAccountNumberAsync(string accountNumber)
+        public async Task<IEnumerable<Transaction>> GetTransactionByAccountNumberAsync(string accountNumber)
         {
-            Transaction transaction = await _transaction.FindAsync(accountNumber);
+            IEnumerable<Transaction> transaction = await _transaction.ToListAsync();
+            return transaction;
+        }
+
+        public async Task<IEnumerable<Transaction>> GetDailyTransactionAsync(DateTime transactionDate)
+        {
+            IEnumerable<Transaction> transaction = await _transaction.Where(x => x.CreatedDate == transactionDate)
+                .ToListAsync();
             return transaction;
         }
 
         public async Task<Transaction> GetTransactionByTransactionIdAsync(string transactionId)
         {
+            
             Transaction transaction = await _transaction.FindAsync(transactionId);
             return transaction;
         }

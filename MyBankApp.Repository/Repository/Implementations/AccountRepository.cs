@@ -27,6 +27,13 @@ namespace MyBankApp.Repository.Repository.Implementations
             return account;
         }
 
+        public async Task<IEnumerable<Account>> GetAccountByUserIdAsync(string userId)
+        {
+            IEnumerable<Account> accounts = await _account.Where(x=> x.UserId == userId).ToListAsync();
+
+            return accounts;
+        }
+
         public async Task<IEnumerable<Account>> GetAllAccountsAsync()
         {
             IEnumerable<Account> accounts =  await _account.ToListAsync();

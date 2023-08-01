@@ -1,6 +1,7 @@
 ﻿using MyBankApp.Models.DTO.AccountDto;
 using MyBankApp.Models.Models;
 using MyBankApp.Repository.UnitOfWork.Abstractions;
+using MyBankApp.Utility.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +21,8 @@ namespace MyBankApp.Core.Implementations
 
         public async Task<string> CreateAccount(Account account)
         {
-             await _unitOfWork.AccountRepository.CreateAsync(account);
-            //_unitOfWork.SaveChanges();
+            await _unitOfWork.AccountRepository.CreateAsync(account);
+            _unitOfWork.Save();
             return "Account created!";
         }
 
@@ -44,7 +45,8 @@ namespace MyBankApp.Core.Implementations
             {
                 return $"Account with account: {account.AccountNumber} does not exist";
             }
-            _unitOfWork.AccountRepository.Update(account);
+
+            _unitOfWork.Save();
 
             return "Account updated successfully";
         }
@@ -57,8 +59,10 @@ namespace MyBankApp.Core.Implementations
                 return $"Account with account: {account.AccountNumber} does not exist";
             }
             _unitOfWork.AccountRepository.Delete(account);
+            _unitOfWork.Save();
 
             return "Account deleted successfully";
         }
+
     }
 }

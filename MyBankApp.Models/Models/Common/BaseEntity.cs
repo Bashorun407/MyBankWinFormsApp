@@ -14,9 +14,9 @@ namespace MyBankApp.Models.Models.Common
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string OtherName { get; set; }
-        private DateTime CreatedDate { get; set; }
-        private string CreatedBy { get; set; }
-        private DateTime ModifiedDate { get; set; }
-        private string ModifiedBy { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
+        public string CreatedBy { get; set; }
+        public DateTime ModifiedDate { get; set; } 
+        public string ModifiedBy { get; set; }
     }
 }

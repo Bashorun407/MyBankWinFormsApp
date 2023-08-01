@@ -12,5 +12,9 @@ namespace MyBankApp.Models.Models
         public string? UserId { get; set; }
         public string? Email { get; set; }
         public string? PhoneNumber { get; set; }
+
+        //Navigational property
+        List<Account> Accounts { get; set; }
+        List<Transaction> Transactions { get; set; }
     }
 }

@@ -27,6 +27,12 @@ namespace MyBankApp.Repository.Repository.Implementations
             return users;
         }
 
+        public async Task<User> GetUserByEmailAsync(string email)
+        {
+            User user = await _user.FindAsync(email);
+            return user;
+        }
+
         public async Task<User> GetUserByPhoneNumberAsync(string phoneNumber)
         {
             User user = await _user.FindAsync(phoneNumber);

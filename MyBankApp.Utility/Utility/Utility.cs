@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyBankApp.Utility.Utility
 {
-    public static class Utility
+    public static class Utilities
     {
         // Clean string to remove digit at the begining
         public static string RemoveDigitFromStart(string val)
