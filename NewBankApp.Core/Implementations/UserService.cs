@@ -23,9 +23,10 @@ namespace MyBankApp.Core.Implementations
         public async Task<string> CreateUser(User user)
         {
             _unitOfWork.UserRepository.CreateAsync(user);
+            _unitOfWork.Save();
 
             return $"User {user.LastName}, {user.FirstName} {user.OtherName} created successfully";
-            _unitOfWork.Save();
+            
         }
 
         //To be completed later...

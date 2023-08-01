@@ -46,6 +46,7 @@ namespace MyBankApp.Core.Implementations
                 return $"Account with account: {account.AccountNumber} does not exist";
             }
 
+            _unitOfWork.AccountRepository.Update(accountToUpdate);
             _unitOfWork.Save();
 
             return "Account updated successfully";
