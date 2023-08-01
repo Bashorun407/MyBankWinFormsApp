@@ -19,6 +19,6 @@ namespace MyBankApp.Models.Models
         public double AccountBalance { get; set; }
 
         //Navigational property
-        List<Account> AccountList { get; set;}
+        ICollection<Account> AccountList { get; set;}
     }
 }

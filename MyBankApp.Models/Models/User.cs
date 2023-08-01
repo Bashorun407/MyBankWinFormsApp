@@ -14,7 +14,7 @@ namespace MyBankApp.Models.Models
         public string? PhoneNumber { get; set; }
 
         //Navigational property
-        List<Account> Accounts { get; set; }
-        List<Transaction> Transactions { get; set; }
+        ICollection<Account> Accounts { get; set; }
+        ICollection<Transaction> Transactions { get; set; }
     }
 }
