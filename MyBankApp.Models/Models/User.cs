@@ -18,3 +18,4 @@ namespace MyBankApp.Models.Models
         ICollection<Transaction> Transactions { get; set; }
     }
 }
+
