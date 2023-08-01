@@ -14,7 +14,7 @@ namespace MyBankApp.Models.Models
         public string AccountNumber { get; set; }
         public string UserId { get; set; }
         public string Password { get; set; }
-        public AccountType AccountType { get; set; }
+        public string AccountType { get; set; }
         [Column(TypeName = "Money")]
         public double AccountBalance { get; set; }
 

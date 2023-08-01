@@ -12,10 +12,12 @@ namespace MyBankApp.Core.Implementations
     public class UserService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ITransactionService _transactionService;
 
-        public UserService(IUnitOfWork unitOfWork)
+        public UserService(IUnitOfWork unitOfWork, ITransactionService transactionService)
         {
             _unitOfWork = unitOfWork;
+            _transactionService = transactionService;
         }
 
         public async Task<string> CreateUser(User user)
@@ -24,6 +26,21 @@ namespace MyBankApp.Core.Implementations
 
             return $"User {user.LastName}, {user.FirstName} {user.OtherName} created successfully";
             _unitOfWork.Save();
+        }
+
+        //To be completed later...
+        public async Task<string> Login(string email, string userId)
+        {
+            //Search user by email
+            User _user = await _unitOfWork.UserRepository.GetUserByEmailAsync(email);
+            User _user2 = await _unitOfWork.UserRepository.GetUserByUserIdAsync(userId);
+
+            if (_user2 != _user)
+            {
+                return "Invalid user";
+            }
+
+            return "User logged in successfully";
         }
 
         public async Task<object> GetUserByEmailAsync(string email)

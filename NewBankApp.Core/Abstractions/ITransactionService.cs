@@ -11,6 +11,7 @@ namespace MyBankApp.Core.Abstractions
     {
         Task<string> CreateTransactionAsync(Transaction transaction);
         Task<string> DeleteTransaction(Transaction transaction);
+        Task<string> DeleteRangeOfTransactionAsync(IEnumerable<Transaction> transactions);
         Task<object> GetTransactionByTransactionIdAsync(string transactionId);
         Task<IEnumerable<Transaction>> GetTransactionByDateAsync(DateTime transactionDate);
         Task<IEnumerable<Transaction>> GetTransactionByAccountNumberAsync(string accountNumber);

@@ -10,6 +10,33 @@ namespace MyBankApp.Utility.Utility
 {
     public static class Utilities
     {
+        //2) Method to generate account number
+        public static string GenerateAccountNumber()
+        {
+            string acctNum = string.Empty;
+            Random rand = new Random();
+
+            for (int i = 0; i < 1; i++)
+            {
+                acctNum += rand.NextInt64();
+            }
+
+            return acctNum;
+        }
+
+        //2b) Method to generate account number
+        public static string GenerateUniqueId()
+        {
+            string acctNum = string.Empty;
+            Random rand = new Random();
+
+            for (int i = 0; i < 1; i++)
+            {
+                acctNum += rand.NextInt64();
+            }
+
+            return acctNum;
+        }
         // Clean string to remove digit at the begining
         public static string RemoveDigitFromStart(string val)
         {

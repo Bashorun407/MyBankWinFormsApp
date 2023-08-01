@@ -32,9 +32,9 @@ namespace MyBankApp.Repository.Repository.Implementations
             return transaction;
         }
 
-        public async Task<IEnumerable<Transaction>> GetDailyTransactionAsync(DateTime transactionDate)
+        public async Task<IEnumerable<Transaction>> GetDailyTransactionAsync(DateOnly transactionDate)
         {
-            IEnumerable<Transaction> transaction = await _transaction.Where(x => x.CreatedDate == transactionDate)
+            IEnumerable<Transaction> transaction = await _transaction.Where(x => DateOnly.Parse(x.CreatedDate.Date.ToString()) == transactionDate) 
                 .ToListAsync();
             return transaction;
         }

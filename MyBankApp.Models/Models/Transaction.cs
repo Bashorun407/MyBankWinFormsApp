@@ -13,7 +13,7 @@ namespace MyBankApp.Models.Models
     {
         public string TransactionId { get; set; }
         //Debit or Credit or Transfer
-        public TransactionType TransactionType { get; set; }
+        public string TransactionType { get; set; }
         public string AccountNumber { get; set; }
 
         [Column(TypeName = "Money")]
@@ -21,6 +21,6 @@ namespace MyBankApp.Models.Models
 
         public string TransactionDescription { get; set; }
 
-        public bool DeleteTransaction { get; set; }
+        //public bool DeleteTransaction { get; set; }
     }
 }
