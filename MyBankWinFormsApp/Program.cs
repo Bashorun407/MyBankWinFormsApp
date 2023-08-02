@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MyBankApp.Repository.Data;
+using MyBankWinFormsApp.Extension;
 
 namespace MyBankWinFormsApp
 {
@@ -26,7 +27,10 @@ namespace MyBankWinFormsApp
             //Add Servcies here
             services.AddTransient<Form1>();
             services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("Default")));
+                    options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.ConfigureUnitOfWork();
+            services.ConfigureServiceManger();
+
             using ServiceProvider servicesProvider = services.BuildServiceProvider();
 
             var form1 = servicesProvider.GetRequiredService<Form1>();
