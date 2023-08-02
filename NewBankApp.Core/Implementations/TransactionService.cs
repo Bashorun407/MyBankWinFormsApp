@@ -29,27 +29,28 @@ namespace MyBankApp.Core.Implementations
             return "Transaction successful";
         }
 
-        public async Task<string> Withdraw(string accountNumber, double withdrawAmount, string description)
+        public async Task<string> Withdraw(string accountNumber, string withdrawAmount, string description)
         {
+            double withdraw = double.Parse(withdrawAmount);
             Account account = await _accountService.GetAccountByAccountNumber(accountNumber);
             if (account == null)
             {
                 return $"Account number: {accountNumber} does not exist";
             }
-            if (withdrawAmount > account.AccountBalance)
+            if (withdraw > account.AccountBalance)
             {
                 return $"Insufficient balance. Enter an amount lower than balance";
             }
 
             //increment account details
-            account.AccountBalance -= withdrawAmount;
+            account.AccountBalance -= withdraw;
 
             //Create a new transaction
             Transaction transaction = new Transaction();
             transaction.TransactionId = Utilities.GenerateUniqueId();
             transaction.AccountNumber = accountNumber;
             transaction.TransactionType = "Debit";
-            transaction.TransactionAmount = withdrawAmount;
+            transaction.TransactionAmount = withdraw;
             transaction.TransactionDescription = description;
             _unitOfWork.TransactionRepository.CreateAsync(transaction);
             _unitOfWork.Save();
@@ -58,8 +59,9 @@ namespace MyBankApp.Core.Implementations
         }
 
 
-        public async Task<string> Deposit(string accountNumber, double depositAmount, string description)
+        public async Task<string> Deposit(string accountNumber, string depositAmount, string description)
         {
+            double deposit = double.Parse(depositAmount);
             Account account = await _accountService.GetAccountByAccountNumber(accountNumber);
             if (account == null)
             {
@@ -68,14 +70,14 @@ namespace MyBankApp.Core.Implementations
 
 
             //increment account details
-            account.AccountBalance += depositAmount;
+            account.AccountBalance += deposit;
 
             //Create a new transaction
             Transaction transaction = new Transaction();
             transaction.TransactionId = Utilities.GenerateUniqueId();
             transaction.AccountNumber = accountNumber;
             transaction.TransactionType = "Debit";
-            transaction.TransactionAmount = depositAmount;
+            transaction.TransactionAmount = deposit;
             transaction.TransactionDescription = description;
 
             //Create a new transaction
@@ -86,7 +88,7 @@ namespace MyBankApp.Core.Implementations
         }
 
 
-        public async Task<string> TransferAsync(string fromAccount, string toAccount, double amount, string description)
+        public async Task<string> TransferAsync(string fromAccount, string toAccount, string amount, string description)
         {
 
             //Withdraw amount from Sender's account

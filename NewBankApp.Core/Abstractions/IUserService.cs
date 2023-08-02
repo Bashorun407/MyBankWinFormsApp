@@ -12,5 +12,6 @@ namespace MyBankApp.Core.Abstractions
         Task<string> CreateUser(User user);
         Task<object> GetUserByEmailAsync(string email);
         Task<IEnumerable<User>> GetAllUsersAsync();
+        Task<string> Login(string email, string userId);
     }
 }

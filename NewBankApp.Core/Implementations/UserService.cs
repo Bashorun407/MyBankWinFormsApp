@@ -1,6 +1,7 @@
 ﻿using MyBankApp.Core.Abstractions;
 using MyBankApp.Models.Models;
 using MyBankApp.Repository.UnitOfWork.Abstractions;
+using MyBankApp.Utility.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,19 @@ namespace MyBankApp.Core.Implementations
 
         public async Task<string> CreateUser(User user)
         {
+            user.UserId = Utilities.GenerateUniqueId();
+            //Creating Account automatically
+            Account account = new Account();
+            account.FirstName = user.FirstName;
+            account.LastName = user.LastName;
+            account.OtherName = user.OtherName;
+            account.AccountNumber = Utilities.GenerateAccountNumber();
+            account.AccountType = user.AccountType;
+            account.AccountBalance = 0.0;
+            //Sasving Account to database
+            _unitOfWork.AccountRepository.CreateAsync(account);
+            
+            //Saving User to database
             _unitOfWork.UserRepository.CreateAsync(user);
             _unitOfWork.Save();
 
