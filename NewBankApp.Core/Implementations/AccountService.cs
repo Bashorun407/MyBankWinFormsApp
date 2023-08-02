@@ -1,4 +1,5 @@
-﻿using MyBankApp.Models.DTO.AccountDto;
+﻿using MyBankApp.Core.Abstractions;
+using MyBankApp.Models.DTO.AccountDto;
 using MyBankApp.Models.Models;
 using MyBankApp.Repository.UnitOfWork.Abstractions;
 using MyBankApp.Utility.Utility;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MyBankApp.Core.Implementations
 {
-    public class AccountService
+    public class AccountService : IAccountService
     {
         private readonly IUnitOfWork _unitOfWork;
 

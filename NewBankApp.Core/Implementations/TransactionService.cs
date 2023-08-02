@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MyBankApp.Core.Implementations
 {
-    public class TransactionService
+    public class TransactionService : ITransactionService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IAccountService _accountService;
@@ -20,17 +20,14 @@ namespace MyBankApp.Core.Implementations
             _unitOfWork = unitOfWork;
         }
 
-        //Redundant CreateTransactionAsync method
-        /*public async Task<string> CreateTransactionAsync(Transaction transaction)
+        public async Task<string> CreateTransactionAsync(Transaction transaction)
         {
 
             await _unitOfWork.TransactionRepository.CreateAsync(transaction);
             _unitOfWork.Save();
 
             return "Transaction successful";
-
-
-        }*/
+        }
 
         public async Task<string> Withdraw(string accountNumber, double withdrawAmount, string description)
         {
@@ -104,8 +101,10 @@ namespace MyBankApp.Core.Implementations
 
         public async Task<string> DeleteTransactionAsync(Transaction transaction)
         {
-             _unitOfWork.TransactionRepository.Delete(transaction);
+            Transaction _transaction = await _unitOfWork.TransactionRepository.GetTransactionByTransactionIdAsync(transaction.TransactionId);
+            _unitOfWork.TransactionRepository.Delete(_transaction);
             _unitOfWork.Save();
+            _unitOfWork.Dispose();
             return "transaction deleted successfully";
         }
 
@@ -134,9 +133,15 @@ namespace MyBankApp.Core.Implementations
             return transactions;
         }
 
-        public async Task<IEnumerable<Transaction>> GetTransactionByDateAsync(DateOnly transactionDate)
+        public async Task<IEnumerable<Transaction>> GetTransactionByDateAsync(string transactionDate)
         {
-            IEnumerable<Transaction> transactions = await _unitOfWork.TransactionRepository.GetDailyTransactionAsync(transactionDate);
+            bool isValidDate = DateOnly.TryParse(transactionDate, out DateOnly dateConverted);
+
+            if(!isValidDate)
+            {
+                return null;
+            }
+            IEnumerable<Transaction> transactions = await _unitOfWork.TransactionRepository.GetDailyTransactionAsync(dateConverted);
             return transactions;
         }
 
@@ -146,6 +151,19 @@ namespace MyBankApp.Core.Implementations
             return allTransaction;
         }
 
-       
+
+        public async Task<string> DeleteTransaction(Transaction transaction)
+        {
+            Transaction _transaction = await _unitOfWork.TransactionRepository.GetTransactionByTransactionIdAsync(transaction.TransactionId);
+            _unitOfWork.TransactionRepository.Delete(_transaction);
+            _unitOfWork.Save();
+            _unitOfWork.Dispose();
+            return "transaction deleted successfully";
+        }
+
+        public Task<IEnumerable<Transaction>> GetTransactionByDateAsync(DateTime transactionDate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

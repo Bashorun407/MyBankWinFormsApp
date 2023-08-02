@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MyBankApp.Core.Implementations
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ITransactionService _transactionService;
