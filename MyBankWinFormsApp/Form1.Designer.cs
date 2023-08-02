@@ -43,7 +43,7 @@
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
-            button1 = new Button();
+            RegCustomButton = new Button();
             textBox8 = new TextBox();
             textBox7 = new TextBox();
             textBox6 = new TextBox();
@@ -51,17 +51,26 @@
             LastNameTextBox = new TextBox();
             FirstNameTextBox = new TextBox();
             label5 = new Label();
-            label4 = new Label();
+            RegisterCustomerTitle = new Label();
             textBox9 = new TextBox();
             panel3 = new Panel();
-            Transaction = new Label();
+            SubmitWithdraw = new Button();
+            SubmitDeposit = new Button();
+            DescriptDepo = new TextBox();
+            DepositAmount = new TextBox();
+            label15 = new Label();
+            label14 = new Label();
+            label13 = new Label();
+            Deposit = new Label();
+            Description = new Label();
+            AcctNumber = new TextBox();
+            DescriptTrans = new TextBox();
+            WithdrawAmount = new TextBox();
+            AccountNum = new TextBox();
+            Amount = new Label();
+            AccountNumber = new Label();
+            WithdrawTitle = new Label();
             label12 = new Label();
-            TransFirstName = new Label();
-            TransLastname = new Label();
-            TranFirstName = new TextBox();
-            TranLastName = new TextBox();
-            OtherName = new TextBox();
-            TransactionType = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -156,7 +165,7 @@
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
-            panel2.Controls.Add(button1);
+            panel2.Controls.Add(RegCustomButton);
             panel2.Controls.Add(textBox8);
             panel2.Controls.Add(textBox7);
             panel2.Controls.Add(textBox6);
@@ -164,7 +173,7 @@
             panel2.Controls.Add(LastNameTextBox);
             panel2.Controls.Add(FirstNameTextBox);
             panel2.Controls.Add(label5);
-            panel2.Controls.Add(label4);
+            panel2.Controls.Add(RegisterCustomerTitle);
             panel2.Location = new Point(349, 44);
             panel2.Name = "panel2";
             panel2.Size = new Size(287, 382);
@@ -232,15 +241,15 @@
             label6.Text = "LastName";
             label6.Click += label6_Click;
             // 
-            // button1
+            // RegCustomButton
             // 
-            button1.BackColor = SystemColors.GradientActiveCaption;
-            button1.Location = new Point(65, 322);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 33);
-            button1.TabIndex = 8;
-            button1.Text = "Register";
-            button1.UseVisualStyleBackColor = false;
+            RegCustomButton.BackColor = SystemColors.GradientActiveCaption;
+            RegCustomButton.Location = new Point(65, 322);
+            RegCustomButton.Name = "RegCustomButton";
+            RegCustomButton.Size = new Size(150, 33);
+            RegCustomButton.TabIndex = 8;
+            RegCustomButton.Text = "Register";
+            RegCustomButton.UseVisualStyleBackColor = false;
             // 
             // textBox8
             // 
@@ -293,16 +302,16 @@
             label5.TabIndex = 1;
             label5.Text = "FirstName";
             // 
-            // label4
+            // RegisterCustomerTitle
             // 
-            label4.AutoSize = true;
-            label4.BackColor = SystemColors.ActiveCaption;
-            label4.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(44, 18);
-            label4.Name = "label4";
-            label4.Size = new Size(171, 28);
-            label4.TabIndex = 0;
-            label4.Text = "Register Customer";
+            RegisterCustomerTitle.AutoSize = true;
+            RegisterCustomerTitle.BackColor = SystemColors.ActiveCaption;
+            RegisterCustomerTitle.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            RegisterCustomerTitle.Location = new Point(44, 18);
+            RegisterCustomerTitle.Name = "RegisterCustomerTitle";
+            RegisterCustomerTitle.Size = new Size(171, 28);
+            RegisterCustomerTitle.TabIndex = 0;
+            RegisterCustomerTitle.Text = "Register Customer";
             // 
             // textBox9
             // 
@@ -313,28 +322,165 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(TransactionType);
-            panel3.Controls.Add(OtherName);
-            panel3.Controls.Add(TranLastName);
-            panel3.Controls.Add(TranFirstName);
-            panel3.Controls.Add(TransLastname);
-            panel3.Controls.Add(TransFirstName);
-            panel3.Controls.Add(Transaction);
+            panel3.Controls.Add(SubmitWithdraw);
+            panel3.Controls.Add(SubmitDeposit);
+            panel3.Controls.Add(DescriptDepo);
+            panel3.Controls.Add(DepositAmount);
+            panel3.Controls.Add(label15);
+            panel3.Controls.Add(label14);
+            panel3.Controls.Add(label13);
+            panel3.Controls.Add(Deposit);
+            panel3.Controls.Add(Description);
+            panel3.Controls.Add(AcctNumber);
+            panel3.Controls.Add(DescriptTrans);
+            panel3.Controls.Add(WithdrawAmount);
+            panel3.Controls.Add(AccountNum);
+            panel3.Controls.Add(Amount);
+            panel3.Controls.Add(AccountNumber);
+            panel3.Controls.Add(WithdrawTitle);
             panel3.Location = new Point(690, 50);
             panel3.Name = "panel3";
-            panel3.Size = new Size(236, 337);
+            panel3.Size = new Size(236, 376);
             panel3.TabIndex = 10;
             // 
-            // Transaction
+            // SubmitWithdraw
             // 
-            Transaction.AutoSize = true;
-            Transaction.BackColor = SystemColors.ActiveCaption;
-            Transaction.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            Transaction.Location = new Point(58, 12);
-            Transaction.Name = "Transaction";
-            Transaction.Size = new Size(110, 28);
-            Transaction.TabIndex = 0;
-            Transaction.Text = "Transaction";
+            SubmitWithdraw.BackColor = SystemColors.ActiveCaption;
+            SubmitWithdraw.Location = new Point(136, 133);
+            SubmitWithdraw.Name = "SubmitWithdraw";
+            SubmitWithdraw.Size = new Size(75, 23);
+            SubmitWithdraw.TabIndex = 15;
+            SubmitWithdraw.Text = "SubmitWithdraw";
+            SubmitWithdraw.UseVisualStyleBackColor = false;
+            // 
+            // SubmitDeposit
+            // 
+            SubmitDeposit.BackColor = SystemColors.ActiveCaption;
+            SubmitDeposit.Location = new Point(58, 331);
+            SubmitDeposit.Name = "SubmitDeposit";
+            SubmitDeposit.Size = new Size(116, 23);
+            SubmitDeposit.TabIndex = 14;
+            SubmitDeposit.Text = "SubmitDeposit";
+            SubmitDeposit.UseVisualStyleBackColor = false;
+            // 
+            // DescriptDepo
+            // 
+            DescriptDepo.Location = new Point(9, 302);
+            DescriptDepo.Name = "DescriptDepo";
+            DescriptDepo.Size = new Size(100, 23);
+            DescriptDepo.TabIndex = 13;
+            // 
+            // DepositAmount
+            // 
+            DepositAmount.Location = new Point(120, 259);
+            DepositAmount.Name = "DepositAmount";
+            DepositAmount.Size = new Size(100, 23);
+            DepositAmount.TabIndex = 12;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(9, 284);
+            label15.Name = "label15";
+            label15.Size = new Size(67, 15);
+            label15.TabIndex = 11;
+            label15.Text = "Description";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(143, 241);
+            label14.Name = "label14";
+            label14.Size = new Size(51, 15);
+            label14.TabIndex = 10;
+            label14.Text = "Amount";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(9, 240);
+            label13.Name = "label13";
+            label13.Size = new Size(99, 15);
+            label13.TabIndex = 9;
+            label13.Text = "Account Number";
+            // 
+            // Deposit
+            // 
+            Deposit.AutoSize = true;
+            Deposit.BackColor = SystemColors.ActiveCaption;
+            Deposit.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            Deposit.Location = new Point(77, 204);
+            Deposit.Name = "Deposit";
+            Deposit.Size = new Size(80, 28);
+            Deposit.TabIndex = 8;
+            Deposit.Text = "Deposit";
+            // 
+            // Description
+            // 
+            Description.AutoSize = true;
+            Description.Location = new Point(32, 112);
+            Description.Name = "Description";
+            Description.Size = new Size(67, 15);
+            Description.TabIndex = 7;
+            Description.Text = "Description";
+            // 
+            // AcctNumber
+            // 
+            AcctNumber.Location = new Point(9, 258);
+            AcctNumber.Name = "AcctNumber";
+            AcctNumber.Size = new Size(100, 23);
+            AcctNumber.TabIndex = 6;
+            // 
+            // DescriptTrans
+            // 
+            DescriptTrans.Location = new Point(20, 134);
+            DescriptTrans.Name = "DescriptTrans";
+            DescriptTrans.Size = new Size(89, 23);
+            DescriptTrans.TabIndex = 5;
+            // 
+            // WithdrawAmount
+            // 
+            WithdrawAmount.Location = new Point(120, 81);
+            WithdrawAmount.Name = "WithdrawAmount";
+            WithdrawAmount.Size = new Size(100, 23);
+            WithdrawAmount.TabIndex = 4;
+            // 
+            // AccountNum
+            // 
+            AccountNum.Location = new Point(20, 81);
+            AccountNum.Name = "AccountNum";
+            AccountNum.Size = new Size(89, 23);
+            AccountNum.TabIndex = 3;
+            // 
+            // Amount
+            // 
+            Amount.AutoSize = true;
+            Amount.Location = new Point(160, 62);
+            Amount.Name = "Amount";
+            Amount.Size = new Size(51, 15);
+            Amount.TabIndex = 2;
+            Amount.Text = "Amount";
+            // 
+            // AccountNumber
+            // 
+            AccountNumber.AutoSize = true;
+            AccountNumber.Location = new Point(20, 61);
+            AccountNumber.Name = "AccountNumber";
+            AccountNumber.Size = new Size(99, 15);
+            AccountNumber.TabIndex = 1;
+            AccountNumber.Text = "Account Number";
+            AccountNumber.Click += label13_Click;
+            // 
+            // WithdrawTitle
+            // 
+            WithdrawTitle.AutoSize = true;
+            WithdrawTitle.BackColor = SystemColors.ActiveCaption;
+            WithdrawTitle.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            WithdrawTitle.Location = new Point(58, 12);
+            WithdrawTitle.Name = "WithdrawTitle";
+            WithdrawTitle.Size = new Size(97, 28);
+            WithdrawTitle.TabIndex = 0;
+            WithdrawTitle.Text = "Withdraw";
             // 
             // label12
             // 
@@ -345,53 +491,6 @@
             label12.TabIndex = 11;
             label12.Text = "label12";
             label12.Click += label12_Click;
-            // 
-            // TransFirstName
-            // 
-            TransFirstName.AutoSize = true;
-            TransFirstName.Location = new Point(20, 61);
-            TransFirstName.Name = "TransFirstName";
-            TransFirstName.Size = new Size(61, 15);
-            TransFirstName.TabIndex = 1;
-            TransFirstName.Text = "FirstName";
-            TransFirstName.Click += label13_Click;
-            // 
-            // TransLastname
-            // 
-            TransLastname.AutoSize = true;
-            TransLastname.Location = new Point(160, 62);
-            TransLastname.Name = "TransLastname";
-            TransLastname.Size = new Size(60, 15);
-            TransLastname.TabIndex = 2;
-            TransLastname.Text = "LastName";
-            // 
-            // TranFirstName
-            // 
-            TranFirstName.Location = new Point(20, 81);
-            TranFirstName.Name = "TranFirstName";
-            TranFirstName.Size = new Size(89, 23);
-            TranFirstName.TabIndex = 3;
-            // 
-            // TranLastName
-            // 
-            TranLastName.Location = new Point(120, 81);
-            TranLastName.Name = "TranLastName";
-            TranLastName.Size = new Size(100, 23);
-            TranLastName.TabIndex = 4;
-            // 
-            // OtherName
-            // 
-            OtherName.Location = new Point(20, 134);
-            OtherName.Name = "OtherName";
-            OtherName.Size = new Size(89, 23);
-            OtherName.TabIndex = 5;
-            // 
-            // TransactionType
-            // 
-            TransactionType.Location = new Point(120, 134);
-            TransactionType.Name = "TransactionType";
-            TransactionType.Size = new Size(100, 23);
-            TransactionType.TabIndex = 6;
             // 
             // Form1
             // 
@@ -426,7 +525,7 @@
         private Label label3;
         private Button Register_Submit;
         private Panel panel2;
-        private Label label4;
+        private Label RegisterCustomerTitle;
         private TextBox textBox8;
         private TextBox textBox7;
         private TextBox textBox6;
@@ -435,7 +534,7 @@
         private TextBox FirstNameTextBox;
         private Label label5;
         private Label label6;
-        private Button button1;
+        private Button RegCustomButton;
         private TextBox textBox9;
         private Label label10;
         private Label label9;
@@ -444,13 +543,22 @@
         private Panel panel3;
         private Label label11;
         private TextBox textBox10;
-        private Label Transaction;
+        private Label WithdrawTitle;
         private Label label12;
-        private Label TransFirstName;
-        private Label TransLastname;
-        private TextBox TransactionType;
-        private TextBox OtherName;
-        private TextBox TranLastName;
-        private TextBox TranFirstName;
+        private Label AccountNumber;
+        private Label Amount;
+        private TextBox AcctNumber;
+        private TextBox DescriptTrans;
+        private TextBox WithdrawAmount;
+        private TextBox AccountNum;
+        private Label Description;
+        private TextBox DescriptDepo;
+        private TextBox DepositAmount;
+        private Label label15;
+        private Label label14;
+        private Label label13;
+        private Label Deposit;
+        private Button SubmitWithdraw;
+        private Button SubmitDeposit;
     }
 }
